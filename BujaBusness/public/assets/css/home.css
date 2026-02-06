@@ -1,0 +1,241 @@
+:root{
+  /* Palette Netlify Homepage */
+  --netlify-navy: #0e1e25;      /* Le fond sombre iconique */
+  --netlify-teal: #25c1b1;      /* La couleur d'accent (logo/boutons) */
+  --netlify-teal-dark: #1e9d90;
+  --netlify-surface: #172a32;   /* Couleur des cartes et inputs sur fond sombre */
+  --netlify-border: #263941;
+  --text-white: #ffffff;
+  --text-muted: #94a3b8;
+  --radius: 12px;               /* Netlify utilise des rayons plus modérés */
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  text-decoration: none;
+}
+
+body{
+  background: var(--netlify-navy);
+  color: var(--text-white);
+  line-height: 1.5;
+}
+
+/* --- NOUVEAU HEADER --- */
+.main-header {
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--netlify-border);
+  background: var(--netlify-navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--netlify-teal);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+/* SEARCH */
+.search{
+  padding: 25px 15px 10px;
+}
+
+.search-box{
+  background: var(--netlify-surface);
+  border: 1px solid var(--netlify-border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+  border-color: var(--netlify-teal);
+}
+
+.search-box i{
+  color: var(--text-muted);
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.search-box input{
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  background-color: transparent;
+  color: var(--text-white);
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+}
+
+/* CATEGORIES */
+.categories{
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Cache scrollbar Firefox */
+}
+
+.categories::-webkit-scrollbar { display: none; } /* Cache scrollbar Chrome */
+
+.category{
+  padding: 8px 20px;
+  border-radius: 20px;
+  background: var(--netlify-surface);
+  border: 1px solid var(--netlify-border);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.category.active,
+.category:hover{
+  background: var(--netlify-teal);
+  border-color: var(--netlify-teal);
+  color: var(--netlify-navy);
+  font-weight: 600;
+}
+
+/* PRODUCTS GRID */
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product{
+  background: var(--netlify-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--netlify-border);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  animation: fadeUp 0.6s ease;
+}
+
+.product:hover{
+  transform: translateY(-5px);
+  border-color: var(--netlify-teal);
+}
+
+.product img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-info{
+  padding: 18px;
+}
+
+.price p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.price span{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-white);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.location{
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--netlify-border);
+}
+
+.location i { color: var(--netlify-teal); }
+
+/* ACTIONS */
+.btn-details-outline {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  border: 1.5px solid var(--netlify-teal);
+  color: var(--netlify-teal);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.btn-details-outline:hover {
+  background-color: var(--netlify-teal);
+  color: var(--netlify-navy);
+}
+
+/* FLOAT BUTTON */
+.publish-btn{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: var(--netlify-teal);
+  color: var(--netlify-navy);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 10px 25px rgba(37, 193, 177, 0.3);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.publish-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: var(--netlify-teal-dark);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Adaptation Header Navbar Mobile (si inclus via PHP) */
+header {
+  border-bottom: 1px solid var(--netlify-border);
+}

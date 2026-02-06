@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Gestion Inventaire | Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../public/assets/css/ListeProduit.css">
+<style>
+
+</style>
+</head>
+
+<body>
+<div class="container">
+  <?php
+    include_once "../../views/layouts/headerDashboard.php";
+?>
+  <div class="page-header">
+    <div class="title-area">
+      <h2>Inventaire des Produits</h2>
+      <p>Gérez vos articles, prix et disponibilités en temps réel.</p>
+    </div>
+    <button class="add-btn" onclick="location.href='publish.html'">+ Nouveau produit</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th class="hide-mobile">Catégorie</th>
+          <th>Statut</th>
+          <th>Prix</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="product-cell">
+              <a href="index.php?page=produit&action=show$id=<?= $produit['id_produit'] ?>">
+                <img src="<?= htmlspecialchars($produit['image_produit']) ?> ?>">
+              </a>
+              <div>
+                <div class="product-name"><?= htmlspecialchars($produit['name']) ?></div>
+                <div class="product-cat">📍 <?= htmlspecialchars($produit['quartier']) ?></div>
+              </div>
+            </div>
+          </td>
+          <td class="hide-mobile">
+            <?= htmlspecialchars($produit['categorie']) ?>
+          </td>
+          <td><span class="badge badge-success">En stock</span></td>
+          <td>
+            <span class="product-name"><?= number_format($produit['prix_produit'],0,',','') ?> BIF</span>
+          </td>
+          <td style="text-align: right;">
+            <span class="action-link">
+              <a href="index.php?page=produit&&action=edit&id_produit=<?= $produit['id_produit'] ?>" class="action-link">
+                Modifier
+              </a>
+            </span>
+            <span class="action-link delete-link">
+              <a href="index.php?page=produit&action=delete&id=<?= $produit['id_produit'] ?>" class="action-link delete-link" onclick="return confirm('Supprimer ce produit ?');" >
+                Retirer
+              </a>
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="product-cell">
+              <img src="https://picsum.photos/100?2">
+              <div>
+                <div class="product-name">Casque Bluetooth Sony</div>
+                <div class="product-cat">📍 Ngagara, Buju</div>
+              </div>
+            </div>
+          </td>
+          <td class="hide-mobile">Accessoires</td>
+          <td><span class="badge badge-success">En stock</span></td>
+          <td><span class="product-name">45 000 BIF</span></td>
+          <td style="text-align: right;">
+            <span class="action-link" onclick="edit(2)">Modifier</span>
+            <span class="action-link delete-link" onclick="remove(this)">Retirer</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="product-cell">
+              <img src="https://picsum.photos/100?3">
+              <div>
+                <div class="product-name">MacBook Air M2</div>
+                <div class="product-cat">📍 Centre Ville</div>
+              </div>
+            </div>
+          </td>
+          <td class="hide-mobile">Ordinateurs</td>
+          <td><span class="badge badge-success">En stock</span></td>
+          <td><span class="product-name">2 800 000 BIF</span></td>
+          <td style="text-align: right;">
+            <span class="action-link" onclick="edit(3)">Modifier</span>
+            <span class="action-link delete-link" onclick="remove(this)">Retirer</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+function remove(btn){
+  if(confirm("Confirmer la suppression de cet article de l'inventaire ?")){
+    btn.closest("tr").fadeOut = function() {
+      this.style.opacity = '0';
+      this.style.transform = 'translateX(20px)';
+      setTimeout(() => this.remove(), 300);
+    };
+    btn.closest("tr").style.transition = 'all 0.3s';
+    btn.closest("tr").fadeOut();
+  }
+}
+
+function edit(id){
+  console.log("Navigation vers l'éditeur pour ID:", id);
+  // Redirection réelle : window.location.href = 'edit.html?id=' + id;
+}
+</script>
+
+</body>
+</html>

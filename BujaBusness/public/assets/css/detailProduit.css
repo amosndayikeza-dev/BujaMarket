@@ -1,0 +1,209 @@
+ :root {
+            /* Palette Officielle Netlify */
+            --primary: #25c1b1;      /* Teal Netlify */
+            --primary-dark: #1e9d90;
+            --secondary: #0e1e25;    /* Navy sombre Netlify */
+            --bg-light: #f9fafb;     /* Fond clair */
+            --bg-white: #ffffff;
+            
+            /* Textes */
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            
+            /* Status */
+            --info: #0288d1;
+            --success: #22c55e;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            text-decoration: none;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding-bottom: 100px; /* Espace pour la barre d'action fixe */
+        }
+
+        /* HEADER */
+        .header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(14, 30, 37, 0.7), transparent);
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* IMAGE HERO */
+        .product-hero {
+            width: 100%;
+            height: 450px;
+            background: var(--secondary);
+            position: relative;
+        }
+
+        .product-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* BADGE */
+        .status-badge {
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+            background: var(--info);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(2, 136, 209, 0.3);
+        }
+
+        /* CONTENT CARD */
+        .content-card {
+            background: var(--bg-white);
+            margin-top: -35px;
+            border-radius: 32px 32px 0 0;
+            padding: 30px 25px;
+            position: relative;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-row i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        .description-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .description-box p {
+            line-height: 1.7;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* ACTIONS BAR */
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 600px; /* Optionnel : pour limiter sur grand écran */
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-white);
+            padding: 15px 25px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.08);
+            border-top: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .btn {
+            flex: 1;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-call {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 193, 177, 0.25);
+        }
+
+        .btn-call:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-wa {
+            background: #ffffff;
+            color: #22c55e;
+            border: 2px solid #22c55e;
+        }
+
+        .btn-wa:hover {
+            background: #f0fdf4;
+        }
+
+        /* Responsive Desktop */
+        @media (min-width: 768px) {
+            .content-card {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 32px;
+                margin-bottom: 40px;
+                border-bottom: 1px solid var(--border);
+            }
+            .product-hero {
+                height: 550px;
+            }
+        }

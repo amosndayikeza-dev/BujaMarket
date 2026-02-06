@@ -1,0 +1,160 @@
+:root {
+            /* Définition des variables de couleur pour un style cohérent */
+            --n-navy: #0e1e25;
+            --n-teal: #20c6b7;
+            --n-border: #e1e8eb;
+            --n-bg: #f4f7f8;
+            --n-white: #ffffff;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+
+        /* Réinitialisation de base et définition de la police par défaut */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Style du corps de la page */
+        body {
+            background-color: var(--n-bg);
+            color: var(--n-navy);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Conteneur principal pour les pages de tableau de bord (ex: liste des commerçants) */
+        .dashboard-container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--n-white);
+            border-radius: 16px;
+            border: 1px solid var(--n-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Animation d'apparition pour le conteneur */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* HEADER DU TABLEAU */
+        .table-header {
+            padding: 25px;
+            border-bottom: 1px solid var(--n-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Titre et sous-titre dans l'en-tête de la table */
+        .table-title h2 { font-size: 22px; font-weight: 800; }
+        .table-title p { font-size: 14px; color: #64748b; margin-top: 4px; }
+
+        /* Bouton "Nouveau" ou "Ajouter" */
+        .btn-add {
+            background: var(--n-teal);
+            color: var(--n-navy);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        /* LE TABLEAU (LOGIQUE DE SCROLL) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto; /* Permet le scroll sur mobile */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 900px; /* Force une largeur min pour garder la structure */
+        }
+
+        /* En-tête du tableau */
+        thead {
+            background: #f9fbfc;
+        }
+
+        th {
+            /* Style des cellules d'en-tête (TH) */
+            padding: 15px 25px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #64748b;
+            border-bottom: 1px solid var(--n-border);
+        }
+
+        /* Style des cellules de données (TD) */
+        td {
+            padding: 18px 25px;
+            font-size: 14px;
+            border-bottom: 1px solid #f8fafc;
+            vertical-align: middle;
+        }
+
+        /* Effet de survol sur les lignes du tableau */
+        tr:hover { background: #fdfdfd; }
+
+        /* BADGES DE STATUT */
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Couleurs spécifiques pour les statuts "actif" et "inactif" */
+        .status-pill.actif { background: #dcfce7; color: var(--success); }
+        .status-pill.inactif { background: #fee2e2; color: var(--danger); }
+
+        /* AVATAR DANS LE TABLEAU */
+        .shop-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Icône représentant la boutique (première lettre du nom) */
+        .shop-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--n-navy);
+            color: var(--n-teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        /* ACTIONS */
+        /* Style pour les boutons d'action (modifier, supprimer) */
+        .actions-cell { display: flex; gap: 8px; }
+        .btn-icon {
+            width: 32px; height: 32px;
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid var(--n-border);
+            color: var(--n-navy);
+            transition: 0.2s;
+        }
+        /* Effet de survol pour les boutons d'action */
+        .btn-icon:hover { background: var(--n-navy); color: white; }
